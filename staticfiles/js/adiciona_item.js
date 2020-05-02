@@ -24,3 +24,10 @@ quantidade.on("click", () =>{
   $("#mensagem").show();
  }
 })
+
+
+let qtde_solicitada = $("#qtde_solicitada").text();
+  console.log(qtde_solicitada);
+
+let total = $("#total").text();
+console.log(total);

@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponseRedirect, resolve_url
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.urls import reverse_lazy, reverse
 from django.utils import timezone
 from django.views import generic
@@ -8,6 +9,10 @@ from django.contrib import messages
 from django.views.generic.edit import UpdateView
 from loja.produtos.models import Produto
 from loja.usuarios.forms import AddProduto, CompraProduto
+from django.views.generic import TemplateView
+from django.http import JsonResponse
+
+
 
 
 def home(request):
@@ -85,16 +90,18 @@ def compra_produto_form(request, pk):
 
 def finalizando_compra(request, pk):
     prod = get_object_or_404(Produto, pk=pk)
-    if request.method == 'POST':
-        form = AddProduto(request.POST, instance=prod)
-        if form.is_valid():
-            prod.nome_produto = form.cleaned_data['nome_produto']
-            prod.quantidade = form.cleaned_data['qtde_solicitada']
-            prod.total_pagar = form.cleaned_data['total_pagar']
-            prod.save()
-            return redirect('finalizando_compra', {"prod":prod})
-    else:
-        return render(request, 'finaliza_compra.html', {"prod":prod})
+    return render(request, 'finaliza_compra.html', pk=prod.pk)
+
+def finalizando_compra2(request):
+    quantidade = request.GET.get('qtde', None)
+    data = {
+        'is_taken': User.objects.filter(username__iexact=quantidade).exists()
+    }
+    return JsonResponse(data)
+
+
+
+
 
 
 """

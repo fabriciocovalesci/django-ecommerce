@@ -11,7 +11,7 @@ quantidade.on("click", () =>{
   preco = parseFloat(preco);
 
   item = quantidade.val();
-  console.log(item);
+
   
   item = parseInt(item);
   total = preco * item;
@@ -24,3 +24,5 @@ quantidade.on("click", () =>{
   $("#mensagem").show();
  }
 })
+
+
