@@ -95,3 +95,51 @@ def finalizando_compra(request, pk):
             return redirect('finalizando_compra', {"prod":prod})
     else:
         return render(request, 'finaliza_compra.html', {"prod":prod})
+
+
+"""
+1. Adicione a jQuery à sua página (neste caso, via GoogleAPIs):
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+
+2. Crie uma view para receber a requisição
+
+#urls.py
+...
+(r'^teste_ajax/(\d+)/$', 'app.views.teste_ajax'),
+...
+
+#views.py
+def teste_ajax(request, id_):
+    return HttpResponse('Id recebido via AJAX: <strong>{0}</strong>'.format(id_), mimetype='text/html')
+
+3. Supondo que seu HTML seja algo assim:
+...
+<div class="projeto">
+  <h1>Este é o projeto 1</h1>
+  <p class="btn" id="1" style="cursor: pointer">Clique para mais dados sobre este projeto</p>
+</div>
+<div class="projeto">
+  <h1>Este é o projeto 2</h1>
+  <p class="btn" id="2"  style="cursor: pointer">Clique para mais dados sobre este projeto</p>
+</div>
+...
+
+Via jQuery você captura o evento onClick e faz a requisição AJAX:
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $('.btn').click(function(){
+      var id = $(this).attr('id');
+      $.get('/teste_ajax/' + id, function(resposta){
+          // Na variável resposta estará o retorno da sua view
+          alert(resposta);
+      });
+    });
+
+  });
+</script>
+
+Neste caso o Django está retornando HTML, mas você pode alterar o mimetype e retornar JSON ou qualquer outro formato.
+"""
