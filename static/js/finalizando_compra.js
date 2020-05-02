@@ -16,29 +16,37 @@ quantidade_solitado.on("click", () =>{
   total = total.toFixed(2);
   $('#total').text(`R$ ${total}`);
 
- console.log(total)
+});
 
+let item = $("#qtd");
 
-})
-
-$("#qtd").change(function () {
-    var qtde = $(this).text();
-
+item.on("click", () =>{
+    item.val()
     $.ajax({
-      url: '/produtos/comprando/',
-      data: {
-        'qtde': qtde
-      },
-      dataType: 'json',
-      success: function (data) {
-        if (data.is_taken) {
-          alert("funcionou");
-          console.log("ajax");
-        }
-      }
-    });
+    url: '/produtos/comprando/',
+    data: {
+      'item': item
+    },
+    dataType: 'json',
+    success: function (data) {
+      console.log(data);
 
+      }
+    
   });
+}
+
+
+
+//   $(function() {
+//     var count = 0;
+//     $('#mybutton').click(function() {
+//         $.get('/ajx/mygetview', {'mydata': 'xyz'}, function(data) {
+//           $('#output').html(data); // append to inner html
+//           //alert(data);
+//       });
+//     });
+
 
 // $.ajax({
 //     url:  '/produtos/comprando',
@@ -88,6 +96,3 @@ $("#qtd").change(function () {
 // let nome = $("#meunome").text();
 // console.log(nome);
     
-
-
-

@@ -11,6 +11,8 @@ from loja.produtos.models import Produto
 from loja.usuarios.forms import AddProduto, CompraProduto
 from django.views.generic import TemplateView
 from django.http import JsonResponse
+from django_ajax.decorators import ajax
+
 
 
 
@@ -92,13 +94,17 @@ def finalizando_compra(request, pk):
     prod = get_object_or_404(Produto, pk=pk)
     return render(request, 'finaliza_compra.html', pk=prod.pk)
 
+@ajax
 def finalizando_compra2(request):
-    quantidade = request.GET.get('qtde', None)
-    data = {
-        'is_taken': User.objects.filter(username__iexact=quantidade).exists()
-    }
-    return JsonResponse(data)
+    if request.method == "POST": #os request.GET()
+        get_value= request.body
+        get_value
+        data = {}
+        data['result'] = 'you made a request'
+        print(data)
+        return HttpResponse(json.dumps(data), content_type="application/json")
 
+    
 
 
 
