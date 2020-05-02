@@ -9,9 +9,8 @@ urlpatterns = [
     path('produtos/', v.produtos, name='produtos'),
     path('produtos/<int:pk>/', v.produtos_detalhe, name='produtos_detalhe'),
     path('produtos/<int:pk>/compra/', v.compra_produto, name='compra_produto'),
-    path('produtos/<int:pk>/compra2/', v.compra_produto_form, name='compra_produto_form'),
     path('produtos/<int:pk>/comprando/', v.finalizando_compra, name='finalizando_compra'),
-    path('produtos/comprando/', v.finalizando_compra2, name='finalizando_compra2'),
+    path('produtos/comprando/', v.finalizando_compra2),
     path('produtos/<int:pk>/edit/', v.produto_editar, name='produto_editar'),
     path('register/', v.Login.as_view(), name='register'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

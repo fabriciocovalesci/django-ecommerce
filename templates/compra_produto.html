@@ -6,9 +6,10 @@
     <div id="mensagem" class="alert alert-info" role="alert">
         Quantidade excedida !
     </div>
-    <form method="POST" class="post-form">
+    <form id="form_compra" method="POST" class="post-form">
+ 
         <div class="card mb-3">
-
+  {% csrf_token %}
             <h2 name="nome_produto">{{ prod.nome }}</h2>
             <p>Descrição: {{ prod.descricao|linebreaksbr }}</p>
             <div class="me 'method' is not definedcard-body">
@@ -32,7 +33,7 @@
 
                 </div>
 
-                <a class="btn btn-primary" id="botao" href='{% url "finalizando_compra" pk=prod.pk %}'
+                <a class="btn btn-primary" type="submit" id="botao" 
                     role="button">Finaliza compra</a>
 
             </div>

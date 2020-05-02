@@ -136,3 +136,5 @@ LOGOUT_REDIRECT_URL = "/conta/login"
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+CSRF_COOKIE_SECURE=True

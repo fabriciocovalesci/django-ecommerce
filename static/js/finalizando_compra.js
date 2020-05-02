@@ -1,40 +1,28 @@
 
+let item = $("#qtd").text();
+console.log(item);
 
-let quantidade_solitado = $("#qtd");
-let valorProduto = $("#preco").text();
 
+$('#botao').click("submit" ,function(event) {
+  event.preventDefault();
 
-quantidade_solitado.on("click", () =>{
-  preco = valorProduto.replace("R$ ", "");
-  preco = preco.replace(",", ".");
-  preco = parseFloat(preco);
-
-  item = quantidade.val();
-
-  item = parseInt(item);
-  total = preco * item;
-  total = total.toFixed(2);
-  $('#total').text(`R$ ${total}`);
-
+  $.ajax({
+      type: 'POST',
+      url: '/produtos/comprando/',
+      data: {
+        quantidade: $("#qtd").val(),
+        total: $("#total").val(),
+        csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
+    },
+      success: function () {
+        console.log("oi")
+      },
+      error: function(xhr, status, e) {
+          alert(status, e);
+      }
+  });
 });
 
-let item = $("#qtd");
-
-item.on("click", () =>{
-    item.val()
-    $.ajax({
-    url: '/produtos/comprando/',
-    data: {
-      'item': item
-    },
-    dataType: 'json',
-    success: function (data) {
-      console.log(data);
-
-      }
-    
-  });
-}
 
 
 

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect, HttpResponseRedirect, resolve_url
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponse, HttpResponseRedirect, resolve_url
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy, reverse
@@ -74,38 +74,13 @@ def compra_produto(request, pk):
     messages.add_message(request, messages.INFO, 'Comprando')
     return render(request, 'compra_produto.html', {"prod":prod})
 
-@login_required()
-def compra_produto_form(request, pk):
-    prod = get_object_or_404(Produto, pk=pk)
-    if request.method == "POST":
-        form = CompraProduto(request.POST)
-        if form.is_valid():
-            nome_produto = form.cleaned_data['nome_produto']
-            qtde_solicitada = form.cleaned_data['qtde_solicitada']
-            total_pagar = form.cleaned_data['total_pagar']
-            form.save()
-            return redirect('finalizando_compra',{"form": form}, pk=prod.pk)
-    else:
-        form = CompraProduto()
-        return render(request, "compra2.html", {"form": form})
-
 
 def finalizando_compra(request, pk):
     prod = get_object_or_404(Produto, pk=pk)
-    return render(request, 'finaliza_compra.html', pk=prod.pk)
+    return render(request, 'finaliza_compra.html')
 
-@ajax
 def finalizando_compra2(request):
-    if request.method == "POST": #os request.GET()
-        get_value= request.body
-        get_value
-        data = {}
-        data['result'] = 'you made a request'
-        print(data)
-        return HttpResponse(json.dumps(data), content_type="application/json")
-
-    
-
+    return render(request, 'finaliza_compra.html')
 
 
 
