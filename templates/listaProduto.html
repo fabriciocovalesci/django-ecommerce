@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="content container">
+  <div class="row">
+    <div class="col-md-8">
+      {% for produto in prod %}
+      <div class="card" style="width: 18rem;">
+        {% if produto.foto %}
+        <img src="{{ produto.foto.url }}" class="card-img-top">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'produtos_detalhe' pk=produto.pk %}">{{ produto.nome }}</a></h5>
+          <p class="card-text">{{ produto.descricao }}</p>
+          <p class="card-text">Quantidade: {{ produto.quantidade }}</p>
+
+          <p class="card-text">Valor: R$ {{ produto.valor }}</p>
+          <div class="date">
+            <p>Comprado: {{ produto.compra_data }}</p>
+          </div>
+          <div>
+            <a class="btn btn-primary" href='{% url "compra_produto" produto.id %}'>Comprar<span
+                class="glyphicon glyphicon-pencil"></span></a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+
+</div>
+{% endblock %}

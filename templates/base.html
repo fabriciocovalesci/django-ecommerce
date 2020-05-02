@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/css/estilos.css' %}">
+        <title>Teste</title>
+</head>
+
+<body>
+    <div class="navbar navbar-expand-lg navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1"><a href="{% url 'home' %}">Home</a></span>
+        <span class="navbar-brand mb-0 h1"><a href="{% url 'produtos' %}">Produtos</a></span>
+        <span class="navbar-brand mb-0 h1"><a href="{% url 'cadastro_produtos' %}">Cadastro produtos</a></span>
+
+    </div>
+
+    {% block content %}
+    <ul class="sidebar-nav">
+        {% if user.is_authenticated %}
+        <li>Usuário: {{ user.get_username }}</li>
+        <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+        {% endif %}
+    </ul>
+
+    {% endblock %}
+
+</div>
+<script src="{% static '/js/jquery.js' %}"></script>
+<script src="{% static '/js/adiciona_item.js' %}"></script>
+<script src="{% static '/js/finalizando_compra.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</body>
+
+</html>

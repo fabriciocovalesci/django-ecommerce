@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="post">
+    <div id="mensagem" class="alert alert-info" role="alert">
+        Quantidade excedida !
+    </div>
+    <form method="POST" class="post-form">
+        <div class="card mb-3">
+
+            <h2 name="nome_produto">{{ prod.nome }}</h2>
+            <p>Descrição: {{ prod.descricao|linebreaksbr }}</p>
+            <div class="me 'method' is not definedcard-body">
+
+                <div class="form-group">
+                    <label for="disponivel">Quantidade disponivel: </label>
+                    <p id="disponivel" name="qtd_disponivel">{{ prod.quantidade }}</p>
+
+                    <label for="qtd">Quantidade:</label>
+                    <input type="number" name="qtde_solicitada" id="qtd" min="1" max="99" value="1"
+                        class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="valorunitario">Valor Unitário:</label>
+                    <output for="valorunitario preco" class="form-control">
+                        <dd id="preco">R$ {{ prod.valor }}</dd>
+                    </output>
+                    <label for="total">Total:</label>
+                    <output for="qtd preco" id="total" name="total_pagar" class="form-control">0</output>
+
+                </div>
+
+                <a class="btn btn-primary" id="botao" href='{% url "finalizando_compra" pk=prod.pk %}'
+                    role="button">Finaliza compra</a>
+
+            </div>
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}

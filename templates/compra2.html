@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <title>compas</title>
+<h2>Qual comprar</a></h2>
+<div class="content container">
+<form method="POST" class="post-form">
+{% csrf_token %}
+
+
+
+
+<div class="fieldWrapper">
+ 
+  
+    <label for="{{ form.nome_produto}}">Nome</label>
+   
+</div>
+<div class="fieldWrapper">
+    
+    <label for="{{ form.qtde_solicitada }}">Quantidade</label>
+   
+</div>
+<div class="fieldWrapper">
+
+    <label for="{{ form.total_pagar }}">Total</label>
+  
+</div>
+
+
+   <button href='#' type="submit" class="save btn btn-primary">Comprar</button>
+</form>
+</div>
+{% endblock %}
+
