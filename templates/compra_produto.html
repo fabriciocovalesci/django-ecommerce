@@ -6,8 +6,9 @@
     <div id="mensagem" class="alert alert-info" role="alert">
         Quantidade excedida !
     </div>
+
     <form id="form_compra" method="POST" class="post-form">
- 
+ <i class="fas fa-cart-arrow-down"></i>
         <div class="card mb-3">
   {% csrf_token %}
             <h2 name="nome_produto">{{ prod.nome }}</h2>
