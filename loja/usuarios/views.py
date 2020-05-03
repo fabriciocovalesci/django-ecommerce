@@ -75,8 +75,14 @@ def compra_produto(request, pk):
 
 def finalizando_compra(request, pk):
     produto = CompraEfetuada.objects.all()
-    #produto = get_object_or_404(CompraEfetuada, pk=pk)
     return render(request, 'finaliza_compra.html', {'produto':produto})
+
+
+def exclui_item(request, pk):
+    prod_exclui = get_object_or_404(CompraEfetuada, pk=pk)
+    prod_exclui.delete()
+    return redirect('produtos')
+
 
 
 def add_carrinho(request):
