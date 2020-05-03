@@ -6,7 +6,7 @@ $('#botao').click("submit" ,function(event) {
 
   $.ajax({
       type: 'POST',
-      url: '/produtos/comprando/',
+      url: '/produtos/add_carrinho/',
       data: {
         quantidade: "quantidade",
         total: "total",

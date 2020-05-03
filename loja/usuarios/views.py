@@ -15,8 +15,6 @@ from django_ajax.decorators import ajax
 
 
 
-
-
 def home(request):
     return render(request, 'base.html')
 
@@ -25,7 +23,6 @@ class Login(generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'registration/register.html'
-
 
 
 def produtos(request):
@@ -68,6 +65,7 @@ def produto_editar(request, pk):
         form = AddProduto(instance=prod)
     return render(request, "compra2.html", {"form":form})
 
+
 @login_required()
 def compra_produto(request, pk):
     prod = get_object_or_404(Produto, pk=pk)
@@ -77,9 +75,11 @@ def compra_produto(request, pk):
 
 def finalizando_compra(request, pk):
     prod = get_object_or_404(Produto, pk=pk)
-    return render(request, 'finaliza_compra.html')
+    return render(request, 'finaliza_compra.html', {"prod":prod})
 
-def finalizando_compra2(request):
+
+def add_carrinho(request):
+    print('adicionando')
     return render(request, 'finaliza_compra.html')
 
 
