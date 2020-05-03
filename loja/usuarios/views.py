@@ -73,8 +73,10 @@ def compra_produto(request, pk):
     return render(request, 'compra_produto.html', {"prod":prod})
 
 
-def finalizando_compra(request):
-    return render(request, 'finaliza_compra.html')
+def finalizando_compra(request, pk):
+    produto = CompraEfetuada.objects.all()
+    #produto = get_object_or_404(CompraEfetuada, pk=pk)
+    return render(request, 'finaliza_compra.html', {'produto':produto})
 
 
 def add_carrinho(request):
@@ -102,6 +104,5 @@ def add_carrinho(request):
         return JsonResponse(response_data)
         
     
-    return render(request, 'finaliza_compra.html', {'produto':produto})     
 
   

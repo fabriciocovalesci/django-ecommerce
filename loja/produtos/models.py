@@ -25,6 +25,7 @@ class Produto(models.Model):
 
 
 class CompraEfetuada(models.Model):
+    #cliente = models.ForeignKey(Produto, default=None, on_delete=models.CASCADE)
     quantidade = models.IntegerField()
     preco = models.DecimalField(max_digits=5,  decimal_places=2)
 

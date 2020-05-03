@@ -13,7 +13,6 @@ quantidade.on("click", () =>{
 
   item = quantidade.val();
 
-  
   item = parseInt(item);
   total = preco * item;
   total = total.toFixed(2);

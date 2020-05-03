@@ -4,5 +4,25 @@
 
 <h2>Produtos</h2>
 
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col">Valor</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for prod in produto %}
+        <tr>
+            <th scope="row">{{ prod.id }}</th>
+            <td>{{ prod.quantidade }}</td>
+            <td>R$ {{ prod.preco }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
 
 {% endblock %}

@@ -4,7 +4,7 @@ $('#botao').click("submit" ,function(event) {
   
   $.ajax({
     url: "/produtos/add_carrinho/",
-    type: "post", // or "get"
+    type: "post", // ou "get"
     data: {
       quantidade: quantidade = $("#qtd").val(),
       total: total = $("#total").val() ,
@@ -12,8 +12,9 @@ $('#botao').click("submit" ,function(event) {
       action: 'post'
     },
     success: function(data) {
-  
-        alert(total);
+      alert(`Dados adicionados ao carrinho de compra
+            Quantidade total: ${quantidade} unidade(s)
+            Valor final: ${total}`)
     },
     error: function(xhr, status, e) {
       alert(status, e);
