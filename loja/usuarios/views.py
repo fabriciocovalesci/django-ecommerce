@@ -7,14 +7,12 @@ from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.views.generic.edit import UpdateView
-from loja.produtos.models import Produto
+from loja.produtos.models import Produto, CompraEfetuada
 from loja.usuarios.forms import AddProduto, CompraProduto
 from django.views.generic import TemplateView
 from django.http import JsonResponse
 from django_ajax.decorators import ajax
 import json
-
-
 
 
 def home(request):
@@ -80,24 +78,31 @@ def finalizando_compra(request):
 
 
 def add_carrinho(request):
+    produto =  CompraEfetuada.objects.all()
     response_data = {}
 
     if  request.POST.get('action') == 'post':
         total_paga = request.POST.get('total')
         quantidade = request.POST.get('quantidade')
 
+        quantidade = int(quantidade)
+     
+        total_paga = total_paga[3:]
+        total_paga = float(total_paga)
+  
         response_data['total_paga'] = total_paga
         response_data['quantidade'] = quantidade
         print(response_data)
-        return redirect('finalizando_compra')
+
+        CompraEfetuada.objects.create(
+            quantidade = quantidade,
+            preco = total_paga,
+        )
 
         return JsonResponse(response_data)
         
     
-    return render(request, 'finaliza_compra.html', {'response_data':response_data})     
-
-
-
+    return render(request, 'finaliza_compra.html', {'produto':produto})     
 
   
 

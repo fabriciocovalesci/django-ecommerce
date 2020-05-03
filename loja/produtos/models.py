@@ -24,6 +24,11 @@ class Produto(models.Model):
         return self.nome
 
 
+class CompraEfetuada(models.Model):
+    quantidade = models.IntegerField()
+    preco = models.DecimalField(max_digits=5,  decimal_places=2)
+
+
     class Meta:
         verbose_name = "Produto"
         verbose_name_plural = "Produtos"
