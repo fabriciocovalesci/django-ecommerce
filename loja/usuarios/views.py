@@ -84,7 +84,6 @@ def exclui_item(request, pk):
     return redirect('produtos')
 
 
-
 def add_carrinho(request):
     produto =  CompraEfetuada.objects.all()
     response_data = {}

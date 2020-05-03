@@ -2,7 +2,9 @@
 
 {% block content %}
 
-<h2>Produtos</h2>
+<div class="d-flex justify-content-center">
+    <h2>Produtos</h2>
+</div>
 
 <table class="table">
     <thead class="thead-dark">
@@ -21,13 +23,12 @@
             <td>{{ prod.quantidade }}</td>
             <td>R$ {{ prod.preco }}</td>
             <td><button type="button" href="{% url 'exclui_item' pk=prod.id %}" class="btn btn-danger">Excluir</button>
-</td>
+            </td>
         </tr>
         {% endfor %}
     </tbody>
 
 </table>
 <button type="button" class="btn btn-primary">Finaliza Comprar</button>
-
 
 {% endblock %}
