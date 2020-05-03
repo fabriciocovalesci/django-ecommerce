@@ -2,6 +2,7 @@
 let quantidade = $("#qtd");
 let valor = $("#preco").text();
 let disponivel = $("#disponivel").text();
+let icone = $("#icone")
 
 $("#mensagem").hide();
 
@@ -17,7 +18,8 @@ quantidade.on("click", () =>{
   total = preco * item;
   total = total.toFixed(2);
   $('#total').text(`R$ ${total}`);
-
+  icone.text(` R$ ${total}`);
+  console.log(icone)
   let qtdetotal = parseInt(disponivel);
  if (item >= qtdetotal){
    $("#qtd").prop("disabled", true);
