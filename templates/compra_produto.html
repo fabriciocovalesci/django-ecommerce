@@ -8,13 +8,12 @@
     </div>
 
     <form id="form_compra" method="POST" class="post-form">
- <i id="icone" class="fas fa-cart-arrow-down"> R$ 0,00</i>
+        <i id="icone" class="fas fa-cart-arrow-down"> R$ </i>
         <div class="card mb-3">
-  {% csrf_token %}
+            {% csrf_token %}
             <h2 name="nome_produto">{{ prod.nome }}</h2>
             <p>Descrição: {{ prod.descricao|linebreaksbr }}</p>
             <div class="me 'method' is not definedcard-body">
-
                 <div class="form-group">
                     <label for="disponivel">Quantidade disponivel: </label>
                     <p id="disponivel" name="qtd_disponivel">{{ prod.quantidade }}</p>
@@ -34,11 +33,10 @@
 
                 </div>
 
-                <a class="btn btn-primary" type="submit" id="botao" 
-                    role="button">Adiciona ao carinho</a>
+                <a class="btn btn-primary" type="submit" id="botao" role="button">Adiciona ao carinho</a>
 
-                <a class="btn btn-primary" type="submit" id="botaocarinho"   href="{% url 'finalizando_compra' pk=prod.pk %}"
-                    role="button">Finaliza compra</a>
+                <a class="btn btn-primary" type="submit" id="botaocarinho" href="{% url 'finalizando_compra'  %}"
+                    role="button">Compra</a>
 
             </div>
         </div>
