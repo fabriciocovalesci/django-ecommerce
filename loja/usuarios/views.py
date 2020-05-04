@@ -13,6 +13,7 @@ from django.views.generic import TemplateView
 from django.http import JsonResponse
 from django_ajax.decorators import ajax
 import json
+import pagarme
 
 
 def home(request):
@@ -83,9 +84,6 @@ def exclui_item(request, pk):
     return HttpResponseRedirect(reverse("finalizando_compra"))
 
 
-def acesso_gateway(request):
-    return render(request, "pagina_pagamento.html")
-
 def add_carrinho(request):
     produto =  CompraEfetuada.objects.all()
     response_data = {}
@@ -112,4 +110,28 @@ def add_carrinho(request):
         
     
 
-  
+def acesso_gateway(request):
+    return render(request, "pagina_pagamento.html")
+
+    pagarme.authentication_key('ak_live_6196qymyyFj6jEMB6yWAaKKglqqrZ9')
+
+    params = {
+        'amount': '10000', 
+        'payment_method': 'boleto',
+        'customer': {
+            'type': 'individual',
+            'country': 'br',
+            'email': 'daenerys.targaryen@gmail.com',
+            'name': 'Daenerys Targaryen',
+            'documents': [
+            {
+                'type': 'cpf',
+                'number': '00000000000'
+            }
+            ]
+        }
+    }
+
+    trx = pagarme.transaction.create(params)
+
+    print (trx)
