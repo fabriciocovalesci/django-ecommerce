@@ -1,23 +1,24 @@
 
 $('#botao').click("submit" ,function(event) {
   event.preventDefault();
-  let quantidade = $("#qtd").val();
-  let total = $("#total").val();
-
+  
   $.ajax({
-      type: 'POST',
-      url: '/produtos/add_carrinho/',
-      data: {
-        quantidade: "quantidade",
-        total: "total",
-        csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
+    url: "/produtos/add_carrinho/",
+    type: "post", // ou "get"
+    data: {
+      quantidade: quantidade = $("#qtd").val(),
+      total: total = $("#total").val() ,
+      csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
+      action: 'post'
     },
-      success: function () {
-        console.log(total)
-        console.log(quantidade)
-      },
-      error: function(xhr, status, e) {
-          alert(status, e);
-      }
-  });
+    success: function(data) {
+      alert(`Dados adicionados ao carrinho de compra
+            Quantidade total: ${quantidade} unidade(s)
+            Valor final: ${total}`)
+    },
+    error: function(xhr, status, e) {
+      alert(status, e);
+  }});
+
+ 
 });
