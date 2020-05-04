@@ -11,8 +11,9 @@ urlpatterns = [
     path('produtos/<int:pk>/', v.produtos_detalhe, name='produtos_detalhe'),
     path('produtos/<int:pk>/compra/', v.compra_produto, name='compra_produto'),
     path('produtos/finalizando/', v.finalizando_compra, name='finalizando_compra'),
-    path('produtos/excluir/<int:pk>/', v.exclui_item, name='exclui_item'),
+    path('produtos/excluir_item/<int:pk>/', v.exclui_item, name='exclui_item'),
     path('produtos/add_carrinho/', v.add_carrinho),
+    path('produtos/excluir_produto/<int:pk>/', v.exclui_produto, name='exclui_produto'),
     path('produtos/pagamento/', v.acesso_gateway, name="acesso_gateway"),
     path('produtos/<int:pk>/edit/', v.produto_editar, name='produto_editar'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

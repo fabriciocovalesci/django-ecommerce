@@ -110,12 +110,18 @@ def add_carrinho(request):
         )
 
         return JsonResponse(response_data)
-        
+
+
+@login_required()        
+def exclui_produto(request, pk):
+    produto = get_object_or_404(Produto, pk=pk).delete()
+    return HttpResponseRedirect(reverse("produtos"))
+
 
 @login_required()
 def acesso_gateway(request):
 
-    pagarme.authentication_key('ak_live_6196qymyyFj6jEMB6yWAaKKglqqrZ9')
+    pagarme.authentication_key('#')
 
     params = {
         'amount': '250', 
