@@ -1,37 +1,27 @@
-{% extends "base.html" %}
+{% extends  'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Entrar{% endblock %}
 
 {% block content %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card  auth-card">
+            <div class="card-body">
+                <h4 class="card-title text-center">Entrar</h4>
+        
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next }}">
+        
+                    {{ form|crispy }}
 
-  {% if form.errors %}
-    <p>Seu nome de usuário e senha não coincidem. Por favor, tente novamente.</p>
-  {% endif %}
-  
-  {% if next %}
-    {% if user.is_authenticated %}
-      <p>Sua conta não tem acesso a esta página. Para prosseguir,
-      faça login com uma conta que tenha acesso.</p>
-    {% else %}
-      <p>Faça o login para ver esta página.</p>
-    {% endif %}
-  {% endif %}
-  
-  <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    <table>
-      <tr>
-        <td>{{ form.username.label_tag }}</td>
-        <td>{{ form.username }}</td>
-      </tr>
-      <tr>
-        <td>{{ form.password.label_tag }}</td>
-        <td>{{ form.password }}</td>
-      </tr>
-    </table>
-    <input type="submit" value="login" />
-    <input type="hidden" name="next" value="{{ next }}" />
-  </form>
-  
-  {# Assumes you setup the password_reset view in your URLconf #}
-  <p><a href="{% url 'password_reset' %}">Esqueceu senha?</a></p>
-  
+                    <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                </form>
+
+                <p class="change-form-p">Quer criar uma conta? <a href="/accounts/register">Clique aqui!</a></p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

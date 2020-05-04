@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'loja.produtos',
     'loja.usuarios',
+    'bootstrapform',
+    'crispy_forms',
 
 ]
 
@@ -133,9 +135,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'imagem')
 
 # Login - Logout
 LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/conta/login"
+LOGOUT_REDIRECT_URL = "/accounts/login"
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 CSRF_COOKIE_SECURE=True
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

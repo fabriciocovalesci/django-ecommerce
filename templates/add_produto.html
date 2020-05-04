@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
+{% load bootstrap %}
 
 {% block content %}
 
     <title>Cadastro</title>
 <h2>Cadastro de Produtos</a></h2>
 <div class="content container">
-<form method="POST" class="post-form">{% csrf_token %}
-  {{ form.as_p }}
-   <button type="submit" class="save btn btn-default">Salvar</button>
+<form method="POST" class="post-form">
+ <div class="form-group">
+{% csrf_token %}
+  {{ form| bootstrap }}
+   <button type="submit" class="save btn btn-primary">Salvar</button>
+   </div>
 </form>
 </div>
 {% endblock %}

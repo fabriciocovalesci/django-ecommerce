@@ -108,21 +108,19 @@ def add_carrinho(request):
 
         return JsonResponse(response_data)
         
-    
 
 def acesso_gateway(request):
-    return render(request, "pagina_pagamento.html")
 
     pagarme.authentication_key('ak_live_6196qymyyFj6jEMB6yWAaKKglqqrZ9')
 
     params = {
-        'amount': '10000', 
+        'amount': '250', 
         'payment_method': 'boleto',
         'customer': {
             'type': 'individual',
             'country': 'br',
-            'email': 'daenerys.targaryen@gmail.com',
-            'name': 'Daenerys Targaryen',
+            'email': 'fabcovalesci@gmail.com',
+            'name': 'Fabricio Covalesci',
             'documents': [
             {
                 'type': 'cpf',

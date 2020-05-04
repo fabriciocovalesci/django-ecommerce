@@ -2,11 +2,12 @@
 
 {% block content %}
 
-<div class="content container">
+<div class="container">
   <div class="row">
-    <div class="col-md-8">
-      {% for produto in prod %}
-      <div class="card" style="width: 18rem;">
+   {% for produto in prod %}
+    <div class="col col-6 col-md-4">
+     
+      <div class="card m-3" style="width: 18rem;">
         {% if produto.foto %}
         <img src="{{ produto.foto.url }}" class="card-img-top">
         {% endif %}
@@ -25,10 +26,12 @@
           </div>
         </div>
       </div>
-      {% endfor %}
+      
 
     </div>
+    {% endfor %}
   </div>
 
 </div>
+
 {% endblock %}
