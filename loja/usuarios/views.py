@@ -83,6 +83,8 @@ def exclui_item(request, pk):
     return HttpResponseRedirect(reverse("finalizando_compra"))
 
 
+def acesso_gateway(request):
+    return render(request, "pagina_pagamento.html")
 
 def add_carrinho(request):
     produto =  CompraEfetuada.objects.all()

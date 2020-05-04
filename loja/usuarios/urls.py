@@ -12,6 +12,7 @@ urlpatterns = [
     path('produtos/finalizando/', v.finalizando_compra, name='finalizando_compra'),
     path('produtos/excluir/<int:pk>/', v.exclui_item, name='exclui_item'),
     path('produtos/add_carrinho/', v.add_carrinho),
+    path('produtos/pagamento/', v.acesso_gateway, name="acesso_gateway"),
     path('produtos/<int:pk>/edit/', v.produto_editar, name='produto_editar'),
     path('register/', v.Login.as_view(), name='register'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
