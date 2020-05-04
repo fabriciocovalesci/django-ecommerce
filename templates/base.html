@@ -9,25 +9,25 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static '/css/estilos.css' %}">
     <link rel="stylesheet" href="{% static '/fontawesome/css/all.css' %}">
-        <title>Teste</title>
+        <title>Loja Virtual</title>
 </head>
 
 <body>
-    <div class="navbar navbar-expand-lg navbar-light bg-light">
-        <span class="navbar-brand mb-0 h1"><a href="{% url 'home' %}">Home</a></span>
-        <span class="navbar-brand mb-0 h1"><a href="{% url 'produtos' %}">Produtos</a></span>
+    <div class="navbar navbar-expand-lg  navbar-dark bg-dark">
+        <span class="navbar-text navbar-brand mb-0 h1"><a href="{% url 'home' %}">Home</a></span>
+        <span class="navbar-text navbar-brand mb-0 h1"><a href="{% url 'produtos' %}">Produtos</a></span>
         {% if user.is_authenticated %}
-        <span class="navbar-brand mb-0 h1"><a href="{% url 'cadastro_produtos' %}">Cadastro produtos</a></span>
+        <span class="navbar-text navbar-brand mb-0 h1"><a href="{% url 'cadastro_produtos' %}">Cadastro produtos</a></span>
         {% endif %}
     </div>
   
     {% block content %}
     <ul class="sidebar-nav">
         {% if user.is_authenticated %}
-        <li>Usuário: {{ user.get_username }}</li>
-        <li><a href="{% url 'logout' %}?next={{request.path}}">Logout</a></li>
+        <li class="lead">Usuário: {{ user.get_username }}</li>
+        <li class="lead"><a href="{% url 'logout' %}?next={{request.path}}">Logout</a></li>
         {% else %}
-        <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+        <li class="lead"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
         {% endif %}
     </ul>
 
