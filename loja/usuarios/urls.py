@@ -16,5 +16,5 @@ urlpatterns = [
     path('produtos/excluir_produto/<int:pk>/', v.exclui_produto, name='exclui_produto'),
     path('produtos/pagamento/', v.acesso_gateway, name="acesso_gateway"),
     path('produtos/<int:pk>/edit/', v.produto_editar, name='produto_editar'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
 
