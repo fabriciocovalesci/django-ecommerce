@@ -9,8 +9,7 @@ class Produto(models.Model):
     valor = models.DecimalField(max_digits=5,  decimal_places=2)
     created_date = models.DateTimeField(default=timezone.now)
     compra_data = models.DateTimeField(blank=True, null=True)
-    foto = models.ImageField(
-        upload_to='produtos', null=True, blank=True)
+    foto = models.ImageField(upload_to='produtos', null=True, blank=True)
 
         
     def compra(self):

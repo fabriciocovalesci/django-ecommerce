@@ -1,9 +1,9 @@
-### Sistema de compra online usando django
+### Online purchase system using django
 
-1. Permitir admin cadastrar, editar, excluir um produto
-2. Cliente pode criar um usuário para efetuar as comprar
-3. Cliente pode excluir um item se caso desistir da compra
-4. Cliente não pode ter acesso ao cadastro, editar ou excluir os produtos
-5. Cliente pode realizar o pagamento usando um gateway de pagamento
+1. Allow admin to register, edit, delete a product
+2. Customer can create a user to make purchases
+3. Customer can delete an item if they abandon the purchase
+4. Customer cannot access the register, edit or delete the products
+5. Customer can make payment using a payment gateway
 
-OBS: Ainda em desenvolvimento !!
+Note: Still in development !!!
