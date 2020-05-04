@@ -3,19 +3,26 @@
 {% block content %}
 
 <div class="post">
-    {% if user.is_authenticated %}
-    <a class="btn btn-default" href="{% url 'produto_editar' pk=prod.pk %}">Editar<span class="glyphicon glyphicon-pencil"></span></a>
-    {% endif %}
-
-    <h2>{{ prod.nome }}</h2>
-    <p>Descrição: {{ prod.descricao|linebreaksbr }}</p>
-    <p>Quantidade: {{ prod.quantidade }}</p>
-    <p>Valor: R$ {{ prod.valor }}</p>
-    {% if prod.compra_data %}
-    <div class="date">
-        {{ prod.compra_data }}
+    <div class="card mb-3">   
+        {% if produto.foto %}
+        <img src="{{ produto.foto.url }}" class="card-img-top">
+        {% endif %}
+        <div class="card-body">
+            <h5 class="card-title">{{ prod.nome }}</h5>
+            <p class="card-text">{{ prod.descricao|linebreaksbr }}</p>
+            <p class="card-text">Quantidade: {{ prod.quantidade }}</p>
+            <p class="card-text">Valor: R$ {{ prod.valor }}</p>
+            {% if prod.compra_data %}
+            <div class="date">
+                <p class="card-text"><small class="text-muted">{{ prod.compra_data }}</small></p>
+            </div>
+            {% endif %}
+        </div>
     </div>
 
+    {% if user.is_authenticated %}
+    <a class="btn btn-warning" href="{% url 'produto_editar' pk=prod.pk %}">Editar<span
+            class="glyphicon glyphicon-pencil"></span></a>
     {% endif %}
 </div>
 {% endblock %}

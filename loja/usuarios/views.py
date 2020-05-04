@@ -61,10 +61,10 @@ def produto_editar(request, pk):
             prod.author = request.user
             prod.created_date = timezone.now()
             prod.save()
-            return redirect('finalizando_compra', pk=prod.pk)
+            return redirect('produtos')
     else:
         form = AddProduto(instance=prod)
-    return render(request, "compra2.html", {"form":form})
+    return render(request, "edit_produto.html", {"form":form})
 
 
 @login_required()
@@ -74,16 +74,19 @@ def compra_produto(request, pk):
     return render(request, 'compra_produto.html', {"prod":prod})
 
 
+@login_required()
 def finalizando_compra(request):
     produto = CompraEfetuada.objects.all()
     return render(request, 'finaliza_compra.html', {'produto':produto})
 
 
+@login_required()
 def exclui_item(request, pk):
     prod_exclui = get_object_or_404(CompraEfetuada, pk=pk).delete()
     return HttpResponseRedirect(reverse("finalizando_compra"))
 
 
+@login_required()
 def add_carrinho(request):
     produto =  CompraEfetuada.objects.all()
     response_data = {}
@@ -109,6 +112,7 @@ def add_carrinho(request):
         return JsonResponse(response_data)
         
 
+@login_required()
 def acesso_gateway(request):
 
     pagarme.authentication_key('ak_live_6196qymyyFj6jEMB6yWAaKKglqqrZ9')
