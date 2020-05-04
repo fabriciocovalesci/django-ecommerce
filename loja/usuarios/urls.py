@@ -5,6 +5,7 @@ from . import views as v
 
 urlpatterns = [
     path('', v.home, name='home'),
+    path('register/', v.Login.as_view(), name='register'),
     path('produtos/new/', v.cadastrar_produto, name='cadastro_produtos'),
     path('produtos/', v.produtos, name='produtos'),
     path('produtos/<int:pk>/', v.produtos_detalhe, name='produtos_detalhe'),
@@ -14,6 +15,5 @@ urlpatterns = [
     path('produtos/add_carrinho/', v.add_carrinho),
     path('produtos/pagamento/', v.acesso_gateway, name="acesso_gateway"),
     path('produtos/<int:pk>/edit/', v.produto_editar, name='produto_editar'),
-    path('register/', v.Login.as_view(), name='register'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
