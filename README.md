@@ -1,6 +1,6 @@
 
 <div align="center">
-  <h2 style="color:#1F89C6;padding:20px;">Online purchase system using django</h2> :snake:
+  <h2 style="color:#1F89C6;padding:20px;">Online purchase system using django  :snake:</h2> 
 </div>
 
 1. Allow admin to register, edit, delete a product  :heavy_check_mark:
