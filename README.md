@@ -1,4 +1,7 @@
-### Online purchase system using django
+
+<div align="center">
+  <h4 style="color:blue;padding:20px;">Online purchase system using django</h4>
+</div>
 
 1. Allow admin to register, edit, delete a product
 2. Customer can create a user to make purchases
