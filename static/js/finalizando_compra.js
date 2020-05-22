@@ -19,6 +19,4 @@ $('#botao').click("submit" ,function(event) {
     error: function(xhr, status, e) {
       alert(status, e);
   }});
-
- 
 });
