@@ -10,7 +10,8 @@
 
 ![login](https://user-images.githubusercontent.com/40548641/82697450-59b30a80-9c3f-11ea-84ab-50627015817d.png)
 
-#### Register
+
+####  <div style="text-align: right"> Register </div>
 
 ![registrar](https://user-images.githubusercontent.com/40548641/82697460-5d469180-9c3f-11ea-991a-c6bf2508e0fc.png)
 
