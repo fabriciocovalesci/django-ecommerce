@@ -9,11 +9,11 @@
 4. Customer cannot access the register, edit or delete the products  :heavy_check_mark:
 5. Customer can make payment using a payment gateway   :heavy_exclamation_mark:
 
-+ Status:
+:dart: **Status:**
 
--  Concluded :heavy_check_mark:
+:heavy_minus_sign: Concluded :heavy_check_mark:
 
--  In progress :heavy_exclamation_mark:
+:heavy_minus_sign: In progress :heavy_exclamation_mark:
 
 <div align="center">
   <h3 style="margin-top:25px;">Login</h3>
