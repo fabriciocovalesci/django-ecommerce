@@ -3,12 +3,17 @@
   <h2 style="color:#1F89C6;padding:20px;">Online purchase system using django</h2>
 </div>
 
-1. Allow admin to register, edit, delete a product
-2. Customer can create a user to make purchases
-3. Customer can delete an item if they abandon the purchase
-4. Customer cannot access the register, edit or delete the products
-5. Customer can make payment using a payment gateway
+1. Allow admin to register, edit, delete a product  :heavy_check_mark:
+2. Customer can create a user to make purchases   :heavy_check_mark:
+3. Customer can delete an item if they abandon the purchase  :heavy_check_mark:
+4. Customer cannot access the register, edit or delete the products  :heavy_check_mark:
+5. Customer can make payment using a payment gateway   :heavy_exclamation_mark:
 
++ Status:
+
+-  Concluded :heavy_check_mark:
+
+-  In progress :heavy_exclamation_mark:
 
 <div align="center">
   <h3 style="margin-top:25px;">Login</h3>
