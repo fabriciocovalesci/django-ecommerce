@@ -122,7 +122,7 @@ def exclui_produto(request, pk):
 def acesso_gateway(request):
 
     pagarme.authentication_key('#')
-
+    # parametros para pagamento por boleto
     params = {
         'amount': '250', 
         'payment_method': 'boleto',
