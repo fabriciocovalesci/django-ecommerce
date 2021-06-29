@@ -3,6 +3,7 @@
   <h2 style="color:#1F89C6;padding:20px;">Online purchase system using django  :snake:</h2> 
 </div>
 
+
 1. Allow admin to register, edit, delete a product  :heavy_check_mark:
 2. Customer can create a user to make purchases   :heavy_check_mark:
 3. Customer can delete an item if they abandon the purchase  :heavy_check_mark:
