@@ -8,7 +8,7 @@ django-fontawesome==1.0
 djangoajax==3.2
 idna==2.9
 pagarme-python==3.3.2
-Pillow==8.2.0
+Pillow==8.3.2
 pkg-resources==0.0.0
 pytz==2019.3
 PyYAML==5.4
